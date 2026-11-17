@@ -66,8 +66,10 @@ test('should complete checkout successfully', async ({ page }) => {
   await cartPage.openCart();
 
   await expect(page).toHaveURL(/cart.html/);
-  await expect(page.locator('.inventory_item_name'))
-    .toHaveText('Sauce Labs Backpack');
+  await expect(
+  page.locator('.cart_item .inventory_item_name')
+).toHaveText('Sauce Labs Backpack');
+  
 
   await cartPage.proceedToCheckout();
 
